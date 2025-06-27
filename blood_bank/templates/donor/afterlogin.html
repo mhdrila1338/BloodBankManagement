@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Donor Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #f8fbfd, #e9f1f7);
+      font-family: 'Inter', sans-serif;
+      color: #2c3e50;
+      padding-bottom: 60px;
+    }
+
+    .navbar {
+      background-color: #ffffff;
+      border-bottom: 1px solid #dee2e6;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: #0077b6 !important;
+    }
+
+    .btn-rounded {
+      border-radius: 30px;
+    }
+
+    .glass-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 40px rgba(0, 119, 182, 0.15);
+    }
+
+    .glass-btn {
+      background-color: #0077b6;
+      color: #ffffff;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .glass-btn:hover {
+      background-color: #005f86;
+    }
+
+    h2 {
+      font-weight: 700;
+      color: #0077b6;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #f8f9fa;
+      text-align: center;
+      padding: 12px;
+      font-size: 14px;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg px-4 py-3">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Blood Bank</a>
+      <div>
+        <a href="{% url 'logout' %}" class="btn glass-btn btn-sm btn-rounded">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container mt-5">
+    <h2 class="text-center mb-5">Welcome, {{ user.first_name }}!</h2>
+
+    <div class="row g-4">
+      <!-- Add Donation -->
+      <div class="col-md-4">
+        <div class="glass-card text-center h-100">
+          <h5>Add Donation</h5>
+          <p>Log a new blood donation entry.</p>
+          <a href="{% url 'add_donation' %}" class="btn glass-btn btn-rounded">Donate Now</a>
+        </div>
+      </div>
+
+      <!-- Donation Stats -->
+      <div class="col-md-4">
+        <div class="glass-card text-center h-100">
+          <h5>Donation Stats</h5>
+          <p>Track your donation history.</p>
+          <a href="{% url 'donation_stats' %}" class="btn glass-btn btn-rounded">View Stats</a>
+        </div>
+      </div>
+
+      <!-- Next Eligible Date -->
+      <div class="col-md-4">
+        <div class="glass-card text-center h-100">
+          <h5>Next Eligible Date</h5>
+          <p>Find your next donation eligibility.</p>
+          <a href="#" class="btn glass-btn btn-rounded">Check Date</a>
+        </div>
+      </div>
+
+      <!-- Urgent Requests -->
+      <div class="col-md-4">
+        <div class="glass-card text-center h-100">
+          <h5>Urgent Requests</h5>
+          <p>See latest urgent blood requests.</p>
+          <a href="{% url 'urgent_requests' %}" class="btn glass-btn btn-rounded">View Requests</a>
+        </div>
+      </div>
+
+      <!-- Health Tips -->
+      <div class="col-md-4">
+        <div class="glass-card text-center h-100">
+          <h5>Health Tips</h5>
+          <p>Stay informed and healthy.</p>
+          <a href="{% url 'health_tips' %}" class="btn glass-btn btn-rounded">Read Tips</a>
+        </div>
+      </div>
+
+      <!-- Profile -->
+      <div class="col-md-4">
+        <div class="glass-card text-center h-100">
+          <h5>My Profile</h5>
+          <p>Update your profile information.</p>
+          <a href="{% url 'update_profile' %}" class="btn glass-btn btn-rounded">Edit Profile</a>
+        </div>
+      </div>
+
+      <!-- Certificates -->
+      <div class="col-md-12">
+        <div class="glass-card text-center h-100">
+          <h5>Certificates</h5>
+          <p>Download and view your achievements.</p>
+          <a href="{% url 'donor_certificates' %}" class="btn glass-btn btn-rounded">View Certificates</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Blood Bank Management System. All rights reserved.
+  </footer>
+
+</body>
+</html>
